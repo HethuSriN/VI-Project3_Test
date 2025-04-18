@@ -1,76 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Phineas and Ferb: Character Episode Timeline</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phineas and Ferb - Data Visualization</title>
+
+  <!-- Font (Optional - fits the fun theme) -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <header>
-    <h1>Phineas and Ferb: Character Participation Timeline</h1>
-    <p>This visualization shows who speaks in which episode — across all seasons.</p>
-  </header>
 
-  <section id="overview">
-    <h2>Show Overview</h2>
-    <p><strong>Title:</strong> Phineas and Ferb</p>
-    <p><strong>Genre:</strong> Animated Comedy / Sci-Fi</p>
-    <p><strong>Platform:</strong> Disney Channel</p>
-    <p><strong>Run:</strong> 2007–2015</p>
-    <p><strong>Episodes:</strong> 222 (Analyzed: Seasons 1–4)</p>
-  </section>
-
-  <button id="replayBtn">▶️ Replay Episode Storyline</button>
-  <button id="compareBtn">👀 Candace vs Mom </button>
-
-  <label for="char1">Character 1:</label>
-<select id="char1"></select>
-
-<label for="char2">Character 2:</label>
-<select id="char2"></select>
-
-<button id="replayDuoBtn">Replay Interactions</button>
-
-
+  <div class="character-scene">
+    
+    <div class="character-wrapper">
+      <img src="images/Phineaspose.png" alt="Phineas" class="scene-character phineas" />
+      <div class="bubble">"Ferb, I know what we're gonna do today!"</div>
+    </div>
+    <div class="character-wrapper">
+      <img src="images/Ferbpose.png" alt="Ferb" class="scene-character ferb" />
+      <div class="bubble">"...!"</div>
+    </div>
+    <div class="character-wrapper">
+      <img src="images/Candacepose.png" alt="Candace" class="scene-character candace" />
+      <div class="bubble">"MOM! Phineas and Ferb are building a website!"</div>
+    </div>
+    
+    
+    
+  </div>
   
-  <h2>Character Appearance Timeline</h2>
-  <section id="filters" style="padding: 1rem 2rem;">
-    <label for="metricSelect">Metric:</label>
-    <select id="metricSelect">
-      <option value="words" selected>Words</option>
-      <option value="lines">Lines</option>
-    </select>
+  <main class="landing-content">
+    <!-- Logo: Click to go to index.html -->
+    <a href="homepage.html" aria-label="Go to Main Visualization">
+      <img src="images/Phineas and Ferb.png" alt="Phineas and Ferb Logo" class="logo"/>
+    </a>
 
-    <label for="characterSelect">Character:</label>
-    <select id="characterSelect">
-      <option value="all">All</option>
-    </select>
-  
-    <label for="seasonSelect">Season:</label>
-    <select id="seasonSelect">
-      <option value="all">All</option>
-    </select>
-  
-    <label>
-      <input type="checkbox" id="majorOnlyToggle"> Show Major Characters Only
-    </label>
-  </section>
-  
-  <section id="extras" style="padding: 1rem 2rem;">
-    <label for="characterSearch">Search Character:</label>
-    <input type="text" id="characterSearch" placeholder="e.g. Perry" />
-  
-    <div id="legend" style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 12px;"></div>
+    <h1>Welcome to the Phineas & Ferb Data Lab</h1>
+    <p>Explore who talks the most, where, when, and with whom in the world of Danville!</p>
 
-  </section>
-  
-  
-  <svg id="timelineChart" width="1200" height="600"></svg>
+    <button id="startBtn">Enter the Data Lab 🚀</button>
+  </main>
 
-  <script src="script.js"></script>
-  <div id="tooltip"></div>
+  <div id="tvStatic" class="static-overlay"></div>
+  <!-- JavaScript -->
+  <script>
+  document.getElementById("startBtn").addEventListener("click", () => {
+    const staticOverlay = document.getElementById("tvStatic");
+    staticOverlay.classList.add("active");
+
+    setTimeout(() => {
+      window.location.href = "homepage.html";
+    }, 1500); // Delay before redirect
+  });
+  </script>
+  
 
 </body>
 </html>
+
